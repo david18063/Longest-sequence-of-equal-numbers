@@ -1,0 +1,38 @@
+# include <iostream>
+
+using namespace std;
+
+int max_count = 1;
+int tempCount = 1;
+int num = 0;
+
+const int M = 10;
+
+int array1[M] = {0,1,1,5,2,2,6,3,3,3};
+int array2[M] = {};
+
+void display_max_sequence()
+{
+	for (int i=0;i<M-1;i++)
+    {
+    	if(array1[i] == array1[i+1]) tempCount++;
+        else tempCount = 1;
+
+        if(tempCount > max_count)
+        {
+        	max_count = tempCount;
+            num = array1[i];
+        }
+    }
+
+    for(int i=0;i<max_count;i++) array2[i] = num;
+
+    for(int i=0;i<max_count;i++) cout<<array2[i]<<" ";
+}
+
+int main()
+{
+    display_max_sequence();
+
+    return 0;
+}
